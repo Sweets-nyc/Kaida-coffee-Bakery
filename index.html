@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAIDA COFFEE & BAKERY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Comfortaa', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .hero-bg {
+            background-image: url('https://lh3.googleusercontent.com/sitesv/APaQ0STAtpWtfPM-WZptL2jDT--CGRPuIs5nix-nc9aNfo3HWprrnYZWkYFZodQMKa9GDcbq7C0W53HDJqJ1otX4nAFXoMj-s3kmr0gUprt-9brIEHMFtSyVhH-KchJzS9bjw1l113idrdjz76iy2AzDtH30ThmZ1XKaZYdFLH7VPpCw6xVKj5nOqW-msy4=w16383');
+            background-size: cover;
+            background-position: center;
+            animation: softBreath 10s ease-in-out infinite;
+        }
+        
+        @keyframes softBreath {
+            0%, 100% { transform: scale(1.02); }
+            50% { transform: scale(1.08); }
+        }
+
+        /* Kawaii Fade-In Effect */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px) scale(0.97);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .btn-kawaii-red {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(153, 27, 27, 0.1);
+        }
+        .btn-kawaii-red:hover {
+            transform: translateY(-4px);
+            border-color: rgba(153, 27, 27, 0.3);
+            background-color: #fffafb;
+            box-shadow: 0 12px 24px -10px rgba(153, 27, 27, 0.15);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Logo wiggle animation */
+        .logo-hover:hover {
+            animation: wiggle 0.5s ease-in-out infinite;
+        }
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+    </style>
+</head>
+<body class="bg-[#fcfaf9] text-stone-800">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav border-b border-red-50/50">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#home" class="flex items-center space-x-3 group">
+                <img src="https://lh3.googleusercontent.com/sitesv/APaQ0SSkA5PwHvXR66MNQRD4hcnYli8oip7UGTtig-YfZP21cUIlfAcEcZcVkqUEOpyW5ybtZ_YdUqyrL9WSLzuX6eKfPhxNsCIGT2_2HKqPBOc7vZZrcEK0sPjLD_MhRvXMCZ53CD1btqRXc97edfG6zXey-kGfjt8Ndpma9-JWt5cdV1IlYcwl3RID3eM=w16383" alt="Kaida Logo" class="h-8 w-auto logo-hover transition-transform duration-300">
+                <span class="font-bold text-[10px] tracking-[0.4em] uppercase text-stone-900">Kaida</span>
+            </a>
+
+            <!-- Dainty Navigation Links -->
+            <div class="hidden md:flex items-center space-x-10 font-bold text-[9px] uppercase tracking-[0.2em]">
+                <a href="#home" class="text-red-800 border-b border-red-800 pb-1">Home</a>
+                <a href="#november" class="text-stone-400 hover:text-red-700 transition-colors">Season</a>
+                <a href="#about" class="text-stone-400 hover:text-red-700 transition-colors">Story</a>
+                <a href="#location" class="text-stone-400 hover:text-red-700 transition-colors">Visit</a>
+            </div>
+
+            <button id="mobileMenuBtn" class="md:hidden p-2 text-stone-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-[70vh] w-full overflow-hidden">
+        <div class="hero-bg absolute inset-0 w-full h-full transform scale-110"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#fcfaf9] via-transparent to-transparent"></div>
+    </section>
+
+    <!-- Red-Themed Action Buttons (Dainty/Elegant) -->
+    <section class="relative -mt-8 z-10 px-6">
+        <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-3">
+            <!-- View Menu -->
+            <a href="#menu" class="reveal stagger-1 btn-kawaii-red bg-white p-4 rounded-2xl flex items-center justify-center space-x-3 group active">
+                <div class="w-6 h-6 bg-red-50 rounded-full flex items-center justify-center group-hover:bg-red-100 transition-colors">
+                    <svg class="w-3 h-3 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <span class="font-bold uppercase tracking-widest text-[9px] text-stone-600">Explore Menu</span>
+            </a>
+            
+            <!-- Order Online (Dark Red/Stone) -->
+            <a href="https://www.grubhub.com/restaurant/kaida-coffee--bakery-122-ludlow-st-new-york/3034934" target="_blank" class="reveal stagger-2 btn-kawaii-red bg-red-900 p-4 rounded-2xl flex items-center justify-center space-x-3 group active border-none">
+                <div class="w-6 h-6 bg-white/10 rounded-full flex items-center justify-center">
+                    <svg class="w-3 h-3 text-red-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                </div>
+                <span class="font-bold uppercase tracking-widest text-[9px] text-white">Order Online</span>
+            </a>
+
+            <!-- Catering -->
+            <a href="mailto:hello@kaidacoffee.com" class="reveal stagger-3 btn-kawaii-red bg-white p-4 rounded-2xl flex items-center justify-center space-x-3 group active">
+                <div class="w-6 h-6 bg-red-50 rounded-full flex items-center justify-center group-hover:bg-red-100 transition-colors">
+                    <svg class="w-3 h-3 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <span class="font-bold uppercase tracking-widest text-[9px] text-stone-600">Catering</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Seasonal Section -->
+    <section id="november" class="py-24 px-6 bg-white overflow-hidden">
+        <div class="max-w-5xl mx-auto reveal">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2 space-y-6">
+                    <span class="text-red-800/40 font-bold tracking-[0.4em] uppercase text-[9px] block">Limited Edition</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-stone-900 leading-tight">November <br/><span class="text-red-900/70 font-light italic">Signature</span></h2>
+                    <p class="text-stone-500 text-base leading-relaxed font-light">
+                        Our seasonal red-velvet infusions and cinnamon morning bakes have arrived. Thoughtfully prepared to complement the New York autumn chill.
+                    </p>
+                    <div class="pt-4">
+                        <button class="bg-red-900 text-white px-8 py-3 rounded-xl font-bold uppercase tracking-widest text-[9px] btn-kawaii-red border-none">View Specials</button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative group">
+                    <div class="absolute -inset-4 bg-red-50/50 rounded-[3rem] rotate-1 group-hover:rotate-0 transition-transform duration-700"></div>
+                    <div class="relative rounded-[2.5rem] overflow-hidden shadow-sm aspect-square">
+                        <img src="https://lh3.googleusercontent.com/sitesv/APaQ0SSZPyTdtvNcH5YYhkQOa2BW74qqsNNsTi7KE2sK8J67fjhLiVirbVFj0DnuNDOcy1Um2N1pPqVtQiG_nqmtpKhzZA0xRP02iXZGH-htoYvFHX1B8TO7z_9PzEt1Fse741rLdrZSzUR49JG7N6bG2qYhSjFjj1yJe0Pxb2QdbU-yUp50UVA7iHBVVRXMH2JsituODgZKVGTrlckgNYIfQdVcED3cWwS7c7dK38Y=w1280" alt="Specialty Coffee" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="about" class="py-24 px-6 bg-[#faf8f7]">
+        <div class="max-w-3xl mx-auto text-center reveal">
+            <img src="https://lh3.googleusercontent.com/sitesv/APaQ0SSkA5PwHvXR66MNQRD4hcnYli8oip7UGTtig-YfZP21cUIlfAcEcZcVkqUEOpyW5ybtZ_YdUqyrL9WSLzuX6eKfPhxNsCIGT2_2HKqPBOc7vZZrcEK0sPjLD_MhRvXMCZ53CD1btqRXc97edfG6zXey-kGfjt8Ndpma9-JWt5cdV1IlYcwl3RID3eM=w16383" alt="Logo Icon" class="h-6 w-auto mx-auto mb-10 opacity-10">
+            <p class="text-xl md:text-2xl text-stone-500 leading-relaxed font-light italic">
+                "A whisper of elegance in every cup..."
+            </p>
+            <p class="mt-6 text-sm text-stone-400 font-light max-w-lg mx-auto leading-loose">
+                Kaida is more than a café; it's a sanctuary for the senses. We use a curated red-roast process to bring out deep, floral notes in every espresso.
+            </p>
+            
+            <div class="mt-16 inline-flex items-center space-x-3 px-5 py-2 bg-white rounded-full shadow-sm border border-red-50">
+                <span class="text-[8px] font-bold uppercase tracking-[0.2em] text-red-900/40 uppercase">Certified Facility ID: 50150160</span>
+                <a href="https://a816-health.nyc.gov/ABCEatsRestaurants/#!/Search/50150160" target="_blank" class="w-4 h-4 text-red-800">
+                    <svg fill="currentColor" viewBox="0 0 24 24" class="w-3 h-3"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-6h2v6zm0-8h-2v-2h2v2z"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Section -->
+    <section id="location" class="py-24 px-6 bg-white">
+        <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8 reveal">
+            <div class="bg-stone-900 p-12 rounded-[2.5rem] flex flex-col justify-center text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-red-900/20 blur-3xl -mr-16 -mt-16"></div>
+                <h3 class="text-xl font-bold mb-8 tracking-widest uppercase text-red-500">Find Us</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between text-[9px] uppercase tracking-[0.3em] border-b border-white/5 pb-4">
+                        <span class="text-stone-500">Weekdays</span>
+                        <span>07:00 — 17:00</span>
+                    </div>
+                    <div class="flex justify-between text-[9px] uppercase tracking-[0.3em] border-b border-white/5 pb-4">
+                        <span class="text-stone-500">Saturday</span>
+                        <span>08:00 — 17:00</span>
+                    </div>
+                    <div class="flex justify-between text-[9px] uppercase tracking-[0.3em] pb-4">
+                        <span class="text-stone-500">Sunday</span>
+                        <span>09:00 — 17:00</span>
+                    </div>
+                </div>
+                <div class="mt-12 space-y-2">
+                    <p class="text-xs text-stone-400 font-light italic">122 Ludlow Street, Lower East Side</p>
+                    <p class="text-xs text-red-500/50 font-bold tracking-widest">+1 646 858 0018</p>
+                </div>
+            </div>
+            <div class="rounded-[2.5rem] overflow-hidden shadow-sm h-80 lg:h-auto border border-red-50 grayscale-[0.3] sepia-[0.1]">
+                <iframe class="w-full h-full opacity-80 hover:opacity-100 transition-opacity duration-700" src="https://maps-api-ssl.google.com/maps?hl=en&ll=40.719309,-73.988417&output=embed&q=122+Ludlow+St,+New+York,+NY+10002+(Kaida+Coffee)&z=17" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center">
+        <div class="flex justify-center space-x-8 mb-10">
+            <a href="https://www.instagram.com/kaidausa/" target="_blank" class="text-red-900/20 hover:text-red-800 transition-all transform hover:scale-110">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+        </div>
+        <p class="text-[8px] tracking-[0.8em] uppercase text-stone-300">Kaida Coffee & Bakery • NYC • 2025</p>
+    </footer>
+
+    <script>
+        function reveal() {
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 80;
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add("active");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", reveal);
+        window.onload = () => {
+            reveal();
+            // Start animations for hero buttons immediately
+            setTimeout(() => {
+                document.querySelectorAll('.reveal.stagger-1, .reveal.stagger-2, .reveal.stagger-3').forEach(el => el.classList.add('active'));
+            }, 200);
+        };
+    </script>
+</body>
+</html>
