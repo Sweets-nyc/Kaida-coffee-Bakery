@@ -19,6 +19,33 @@
         .custom-shadow {
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
+
+        /* Animation for buttons */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 { animation-delay: 0.3s; }
+        .stagger-2 { animation-delay: 0.5s; }
+        .stagger-3 { animation-delay: 0.7s; }
+
+        .btn-red {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-red:hover {
+            background-color: #7f1d1d; /* darker red */
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(153, 27, 27, 0.4);
+        }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800">
@@ -57,9 +84,27 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Just the Image) -->
-    <section id="home" class="hero-bg h-[90vh] w-full shadow-2xl">
-        <!-- Text removed as requested to let the image shine -->
+    <!-- Hero Section -->
+    <section id="home" class="relative hero-bg h-[90vh] w-full shadow-2xl flex items-end justify-center pb-12">
+        <div class="absolute inset-0 bg-black/5"></div> <!-- Subtle overlay for depth -->
+        
+        <!-- Fading Action Buttons -->
+        <div class="relative z-10 flex flex-col md:flex-row gap-4 px-6 w-full max-w-3xl justify-center">
+            <a href="#november" class="fade-in-up stagger-1 btn-red bg-red-800 text-white px-8 py-4 rounded-xl shadow-lg flex items-center justify-center space-x-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                <span class="font-bold uppercase tracking-[0.2em] text-[10px]">View Menu</span>
+            </a>
+            
+            <a href="https://www.grubhub.com/restaurant/kaida-coffee--bakery-122-ludlow-st-new-york/3034934" target="_blank" class="fade-in-up stagger-2 btn-red bg-red-800 text-white px-8 py-4 rounded-xl shadow-lg flex items-center justify-center space-x-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                <span class="font-bold uppercase tracking-[0.2em] text-[10px]">Order Now</span>
+            </a>
+
+            <a href="mailto:hello@kaidacoffee.com" class="fade-in-up stagger-3 btn-red bg-red-800 text-white px-8 py-4 rounded-xl shadow-lg flex items-center justify-center space-x-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <span class="font-bold uppercase tracking-[0.2em] text-[10px]">Catering</span>
+            </a>
+        </div>
     </section>
 
     <!-- November 2025 Section -->
@@ -185,7 +230,6 @@
         const menu = document.getElementById('mobileMenu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
         
-        // Hide menu on scroll for cleaner mobile feel
         window.addEventListener('scroll', () => {
             if (!menu.classList.contains('hidden')) {
                 menu.classList.add('hidden');
