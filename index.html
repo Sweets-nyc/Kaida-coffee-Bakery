@@ -49,23 +49,44 @@
         .page.active { display: block; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .menu-card {
-            aspect-ratio: 8.5 / 11;
+        /* Dropdown Styles */
+        .dropdown-container:hover .dropdown-menu {
+            display: block;
+            animation: slideDown 0.2s ease-out;
+        }
+        
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
             width: 100%;
-            max-width: 280px;
+            height: 20px;
+            background: transparent;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .zoom-card {
             background-color: #fff;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
             border-radius: 1.5rem;
             overflow: hidden;
             transition: all 0.4s ease;
             border: 1px solid #f5f5f4;
             cursor: zoom-in;
         }
-        .menu-card:hover {
+        .zoom-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 30px -10px rgba(153, 27, 27, 0.15);
         }
-        .menu-card img {
+        
+        .menu-card { aspect-ratio: 8.5 / 11; width: 100%; max-width: 280px; }
+        .gallery-item { aspect-ratio: 1/1; width: 100%; }
+
+        .zoom-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -96,7 +117,6 @@
             object-fit: contain;
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f5f5f4; }
         ::-webkit-scrollbar-thumb { background: #991b1b; border-radius: 10px; }
@@ -104,7 +124,7 @@
 </head>
 <body class="bg-stone-50 text-stone-800">
 
-    <!-- Lightbox Element -->
+    <!-- Lightbox -->
     <div id="lightbox" onclick="closeLightbox()">
         <img id="lightboxImg" src="" alt="Zoomed view">
         <div class="absolute top-10 right-10 text-red-900">
@@ -122,7 +142,19 @@
 
             <div class="hidden md:flex items-center space-x-10 font-bold text-[10px] uppercase tracking-[0.2em]">
                 <a href="javascript:void(0)" onclick="navigateTo('home')" class="nav-link text-red-800 py-2 border-b-2 border-red-800 transition-all" data-page="home">Home</a>
-                <a href="javascript:void(0)" onclick="navigateTo('menu')" class="nav-link py-2 transition-all hover:text-red-700 text-stone-400" data-page="menu">Menu</a>
+                
+                <!-- Dropdown -->
+                <div class="dropdown-container relative h-20 flex items-center">
+                    <button class="nav-link flex items-center space-x-1 py-2 text-stone-400 hover:text-red-700 transition-all uppercase tracking-[0.2em]" data-page="menu">
+                        <span>Experience</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <div class="dropdown-menu absolute hidden top-[75px] left-[-20px] w-48 bg-white border border-stone-100 shadow-2xl rounded-2xl py-3 z-50">
+                        <a href="javascript:void(0)" onclick="navigateTo('menu')" class="block px-6 py-3 text-stone-600 hover:bg-stone-50 hover:text-red-800 transition-colors">Menu</a>
+                        <a href="javascript:void(0)" onclick="navigateTo('gallery')" class="block px-6 py-3 text-stone-600 hover:bg-stone-50 hover:text-red-800 transition-colors">Gallery</a>
+                    </div>
+                </div>
+
                 <a href="javascript:void(0)" onclick="navigateTo('about')" class="nav-link py-2 transition-all hover:text-red-700 text-stone-400" data-page="about">About</a>
                 <a href="https://www.grubhub.com/restaurant/kaida-coffee--bakery-122-ludlow-st-new-york/3034934" target="_blank" class="py-2 transition-all hover:text-red-700 text-stone-400">Order</a>
             </div>
@@ -135,6 +167,7 @@
         <div id="mobileMenu" class="hidden md:hidden bg-white px-6 py-8 space-y-6 font-bold uppercase text-[10px] tracking-widest border-b border-stone-100">
             <a href="javascript:void(0)" onclick="navigateTo('home')" class="block text-red-800">Home</a>
             <a href="javascript:void(0)" onclick="navigateTo('menu')" class="block text-stone-500">Menu</a>
+            <a href="javascript:void(0)" onclick="navigateTo('gallery')" class="block text-stone-500">Gallery</a>
             <a href="javascript:void(0)" onclick="navigateTo('about')" class="block text-stone-500">About</a>
             <a href="https://www.grubhub.com/restaurant/kaida-coffee--bakery-122-ludlow-st-new-york/3034934" target="_blank" class="block text-stone-500">Order Now</a>
         </div>
@@ -142,7 +175,7 @@
 
     <!-- HOME PAGE -->
     <main id="home-page" class="page active">
-        <!-- Hero Section -->
+        <!-- Hero -->
         <section class="relative hero-bg h-[85vh] w-full flex items-end justify-center pb-16">
             <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
             <div class="relative z-10 flex flex-col md:flex-row gap-6 px-6 w-full max-w-2xl">
@@ -176,7 +209,7 @@
             </div>
         </section>
 
-        <!-- Hours Section -->
+        <!-- Hours -->
         <section class="py-24 bg-stone-50 px-6">
             <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-stretch">
                 <div class="bg-[#FFF9F9] p-10 md:p-16 rounded-[3rem] custom-shadow border border-red-100 flex flex-col justify-center relative overflow-hidden">
@@ -229,7 +262,7 @@
             </div>
         </section>
 
-        <!-- Visit Us Section -->
+        <!-- Visit Us restored -->
         <section id="visit-section" class="py-24 px-6 bg-white">
             <div class="max-w-6xl mx-auto bg-red-900 rounded-[3.5rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(153,27,27,0.3)]">
                 <div class="grid lg:grid-cols-2">
@@ -251,7 +284,7 @@
                                 <a href="https://x.com/KaidaUsa" target="_blank" class="w-14 h-14 flex items-center justify-center bg-white/10 backdrop-blur-md rounded-2xl hover:bg-white hover:text-red-900 transition-all hover:-translate-y-2 group">
                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                                 </a>
-                                <a href="https://www.grubhub.com/restaurant/kaida-coffee--bakery-122-ludlow-st-new-york/3034934" target="_blank" class="px-8 py-4 bg-white text-red-900 rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:bg-red-50 transition-all">Directions</a>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=122+Ludlow+St+New+York" target="_blank" class="px-8 py-4 bg-white text-red-900 rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:bg-red-50 transition-all">Directions</a>
                             </div>
                         </div>
                     </div>
@@ -265,15 +298,35 @@
         <div class="max-w-6xl mx-auto px-6 text-center">
             <span class="text-red-800 font-bold tracking-[0.4em] uppercase text-[10px] mb-2 block">Our Curation</span>
             <h2 class="text-4xl font-bold text-stone-900 mb-8 serif-font">Seasonal Menu</h2>
-            <p class="text-stone-400 text-[10px] uppercase tracking-widest mb-12">Click any item to view details</p>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center">
-                <div class="menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=1200" alt="Specialty Pour Over"></div>
-                <div class="menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=1200" alt="Latte Art"></div>
-                <div class="menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=1200" alt="Morning Brew"></div>
-                <div class="menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80&w=1200" alt="Artisan Pastries"></div>
-                <div class="menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80&w=1200" alt="Fresh Croissants"></div>
-                <div class="menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=1200" alt="Seasonal Sweets"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=1200" alt="Pour Over"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=1200" alt="Latte Art"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=1200" alt="Fresh Brew"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80&w=1200" alt="Pastry"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80&w=1200" alt="Croissant"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=1200" alt="Sweets"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- GALLERY PAGE -->
+    <main id="gallery-page" class="page pt-32 pb-24 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-red-800 font-bold tracking-[0.4em] uppercase text-[10px] mb-2 block">Atmosphere</span>
+                <h2 class="text-4xl font-bold text-stone-900 mb-4 serif-font">Interior & Lifestyle</h2>
+                <p class="text-stone-400 font-light italic">Snapshots from the shop</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1200"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1200"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80&w=1200"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=1200"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1525648199074-cee30ba79a4a?auto=format&fit=crop&q=80&w=1200"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=1200"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1200"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&q=80&w=1200"></div>
             </div>
         </div>
     </main>
@@ -308,8 +361,10 @@
                 target.classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
+            
             document.querySelectorAll('.nav-link').forEach(link => {
-                if (link.getAttribute('data-page') === pageId) {
+                const linkPage = link.getAttribute('data-page');
+                if (linkPage === pageId || (linkPage === 'menu' && (pageId === 'gallery' || pageId === 'menu'))) {
                     link.classList.add('text-red-800', 'border-b-2', 'border-red-800');
                     link.classList.remove('text-stone-400');
                 } else {
@@ -326,16 +381,15 @@
             const lightboxImg = document.getElementById('lightboxImg');
             lightboxImg.src = imgSrc;
             lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scroll
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
-            document.body.style.overflow = 'auto'; // Restore scroll
+            document.body.style.overflow = 'auto'; 
         }
 
         document.getElementById('mobileMenuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
     </script>
 </body>
 </html>
-
