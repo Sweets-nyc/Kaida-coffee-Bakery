@@ -38,7 +38,7 @@
         /* Pan Effect: Moves image up and down slowly */
         .bg-slide img {
             width: 100%;
-            height: 120%; 
+            height: 120%; /* Taller than container to allow panning */
             object-fit: cover;
             position: absolute;
             top: 0;
@@ -129,7 +129,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(251, 247, 242, 0.98); /* Warm light background */
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             cursor: zoom-out;
@@ -168,12 +168,12 @@
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-xl border-b border-stone-200/50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center space-x-3 group">
-                <img src="https://lh3.googleusercontent.com/sitesv/APaQ0SSkA5PwHvXR66MNQRD4hcnYli8oip7UGTtig-YfZP21cUIlfAcEcZcVkqUEOpyW5ybtZ_YdUqyrL9WSLzuX6eKfPhxNsCIGT2_2HKqPBOc7vZZrcEK0sPjLD_MhRvXMCZ53CD1btqRXc97edfG6zXey-kGfjt8Ndpma9-JWt5cdV1IlYcwl3RID3eM=w16383" alt="Kaida Logo" class="h-12 w-auto transition-transform group-hover:rotate-6">
+                <img src="logo.avif" alt="Kaida Logo" class="h-12 w-auto transition-transform group-hover:rotate-6">
                 <span class="font-bold text-sm tracking-[0.25em] uppercase hidden lg:block text-stone-900 serif-font">Kaida Coffee & Bakery</span>
             </a>
 
             <div class="hidden md:flex items-center space-x-10 font-bold text-[10px] uppercase tracking-[0.2em]">
-                <a href="javascript:void(0)" onclick="navigateTo('home')" class="nav-link text-red-800 py-2 border-b-2 border-red-800 transition-all" data-page="home">Home</a>
+                <a href="javascript:void(0)" onclick="navigateTo('home')" class="nav-link text-stone-400 py-2 transition-all hover:text-red-700" data-page="home">Home</a>
                 
                 <div class="dropdown-container relative h-20 flex items-center">
                     <button class="nav-link flex items-center space-x-1 py-2 text-stone-400 hover:text-red-700 transition-all uppercase tracking-[0.2em]" data-page="menu">
@@ -190,7 +190,7 @@
                 <a href="https://www.grubhub.com/restaurant/kaida-coffee--bakery-122-ludlow-st-new-york/3034934" target="_blank" class="py-2 transition-all hover:text-red-700 text-stone-400">Order</a>
             </div>
 
-            <button id="mobileMenuBtn" class="p-2 text-red-900 md:hidden">
+            <button id="mobileMenuBtn" class="md:hidden p-2 text-red-900">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
@@ -209,22 +209,14 @@
         <!-- Hero with Background Gallery -->
         <section class="hero-container flex items-end justify-center pb-16">
             <div id="bg-gallery-wrapper" class="absolute inset-0">
-                <div class="bg-slide active">
-                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=2000" alt="Cafe Exterior">
-                </div>
-                <div class="bg-slide">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2000" alt="Fresh Beans">
-                </div>
-                <div class="bg-slide">
-                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=2000" alt="Bakery Display">
-                </div>
-                <div class="bg-slide">
-                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=2000" alt="Coffee Pour">
-                </div>
+                <div class="bg-slide active"><img src="backfround outside.jpg" alt="Kaida Outside"></div>
+                <div class="bg-slide"><img src="background.jpg" alt="Interior Details"></div>
+                <div class="bg-slide"><img src="gallery.jpg" alt="Bakery Selection"></div>
+                <div class="bg-slide"><img src="gallery2.jpg" alt="Fresh Bakes"></div>
+                <div class="bg-slide"><img src="gallery3.jpg" alt="Cafe Vibe"></div>
+                <div class="bg-slide"><img src="outside.webp" alt="Street View"></div>
             </div>
-
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
-            
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
             <div class="relative z-10 flex flex-col md:flex-row gap-6 px-6 w-full max-w-2xl">
                 <button onclick="navigateTo('menu')" class="fade-in-up stagger-1 btn-red bg-red-900 text-white px-10 py-5 rounded-2xl shadow-xl flex items-center justify-center space-x-3 w-full">
                     <span class="font-bold uppercase tracking-[0.25em] text-[11px]">View Menu</span>
@@ -236,7 +228,7 @@
         </section>
 
         <!-- Seasonal Update -->
-        <section class="py-24 px-6 bg-[#fcf9f2] overflow-hidden">
+        <section class="py-24 px-6 bg-white overflow-hidden">
             <div class="max-w-6xl mx-auto">
                 <div class="flex flex-col md:flex-row items-center gap-16">
                     <div class="md:w-1/2">
@@ -259,31 +251,30 @@
         <!-- Hours -->
         <section class="py-24 bg-stone-50 px-6">
             <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-stretch">
-                <div class="bg-[#fdfcf9] p-10 md:p-16 rounded-[3rem] custom-shadow border border-red-100 flex flex-col justify-center relative overflow-hidden">
+                <div class="bg-[#FFF9F9] p-10 md:p-16 rounded-[3rem] custom-shadow border border-red-100 flex flex-col justify-center relative overflow-hidden">
                     <div class="absolute -top-10 -right-10 w-40 h-40 bg-red-50 rounded-full blur-3xl opacity-60"></div>
                     <div class="relative">
                         <div class="inline-flex items-center justify-center w-12 h-12 bg-red-900 text-white rounded-full mb-8 shadow-lg shadow-red-200">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
                         <h3 class="text-3xl font-bold mb-10 text-stone-900 serif-font italic">Sweet Moments</h3>
-                        <div class="space-y-6 text-stone-700">
+                        <div class="space-y-6">
                             <div class="flex items-center justify-between">
                                 <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-red-900/60">Mon — Fri</span>
                                 <div class="flex-grow mx-4 border-b border-dashed border-red-200"></div>
-                                <span class="font-medium text-sm">7:00 am – 5:00 pm</span>
+                                <span class="font-medium text-stone-800 text-sm">7:00 am – 5:00 pm</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-red-900/60">Saturday</span>
                                 <div class="flex-grow mx-4 border-b border-dashed border-red-200"></div>
-                                <span class="font-medium text-sm">8:00 am – 5:00 pm</span>
+                                <span class="font-medium text-stone-800 text-sm">8:00 am – 5:00 pm</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-red-900/60">Sunday</span>
                                 <div class="flex-grow mx-4 border-b border-dashed border-red-200"></div>
-                                <span class="font-medium text-sm">9:00 am – 5:00 pm</span>
+                                <span class="font-medium text-stone-800 text-sm">9:00 am – 5:00 pm</span>
                             </div>
                         </div>
-
                         <div class="mt-12 pt-10 border-t border-red-50 flex flex-col gap-5 text-sm">
                             <div class="flex items-center text-stone-700">
                                 <div class="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center mr-4">
@@ -341,42 +332,24 @@
     </main>
 
     <!-- MENU PAGE -->
-    <main id="menu-page" class="page pt-32 pb-24 bg-[#fcf9f2]">
+    <main id="menu-page" class="page pt-32 pb-24 bg-stone-100">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <span class="text-red-800 font-bold tracking-[0.4em] uppercase text-[10px] mb-2 block">Our Curation</span>
             <h2 class="text-4xl font-bold text-stone-900 mb-8 serif-font">Seasonal Menu</h2>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center">
-                <div class="zoom-card menu-card" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?auto=format&fit=crop&q=80&w=800" alt="Specialty Drinks">
-                    <div class="p-4 text-xs font-bold uppercase tracking-widest text-stone-400">Special Drinks</div>
-                </div>
-                <div class="zoom-card menu-card" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=800" alt="Coffee Selection">
-                    <div class="p-4 text-xs font-bold uppercase tracking-widest text-stone-400">Classic Coffee</div>
-                </div>
-                <div class="zoom-card menu-card" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&q=80&w=800" alt="Matcha Specials">
-                    <div class="p-4 text-xs font-bold uppercase tracking-widest text-stone-400">Matcha Specials</div>
-                </div>
-                <div class="zoom-card menu-card" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&q=80&w=800" alt="Non-Coffee Drinks">
-                    <div class="p-4 text-xs font-bold uppercase tracking-widest text-stone-400">Non-Coffee</div>
-                </div>
-                <div class="zoom-card menu-card" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80&w=800" alt="Bakery Pastries">
-                    <div class="p-4 text-xs font-bold uppercase tracking-widest text-stone-400">Fresh Pastries</div>
-                </div>
-                <div class="zoom-card menu-card" onclick="openLightbox(this)">
-                    <img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&q=80&w=800" alt="Sweets">
-                    <div class="p-4 text-xs font-bold uppercase tracking-widest text-stone-400">Daily Sweets</div>
-                </div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="Special Drinks.webp" alt="Special Drinks"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="drinks.webp" alt="Standard Drinks"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="matcha Specials.webp" alt="Matcha Specials"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="non-coffee.webp" alt="Non-Coffee Drinks"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="pastry.webp" alt="Pastry Menu"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="pastry1.webp" alt="More Pastries"></div>
             </div>
         </div>
     </main>
 
     <!-- GALLERY PAGE -->
-    <main id="gallery-page" class="page pt-32 pb-24 bg-[#fcf9f2]">
+    <main id="gallery-page" class="page pt-32 pb-24 bg-stone-50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-red-800 font-bold tracking-[0.4em] uppercase text-[10px] mb-2 block">Atmosphere</span>
@@ -384,20 +357,20 @@
                 <p class="text-stone-400 font-light italic">Snapshots from the shop</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1200"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1200"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80&w=1200"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=1200"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1525648199074-cee30ba79a4a?auto=format&fit=crop&q=80&w=1200"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=1200"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80&w=1200"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&q=80&w=1200"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1200" alt="Cafe Detail"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1200" alt="Latte Art"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80&w=1200" alt="Bakery Display"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=1200" alt="Cozy Corner"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1525648199074-cee30ba79a4a?auto=format&fit=crop&q=80&w=1200" alt="Barista Work"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=1200" alt="Coffee Pour"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80&w=1200" alt="Interior View"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&q=80&w=1200" alt="Modern Setup"></div>
             </div>
         </div>
     </main>
 
     <!-- ABOUT PAGE -->
-    <main id="about-page" class="page pt-32 pb-24 bg-[#fcf9f2]">
+    <main id="about-page" class="page pt-32 pb-24">
         <div class="max-w-3xl mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-red-800 font-bold tracking-[0.4em] uppercase text-[10px] mb-4 block">Our Story</span>
@@ -419,11 +392,11 @@
     </footer>
 
     <script>
-        // --- BACKGROUND SLIDER LOGIC ---
         const slides = document.querySelectorAll('.bg-slide');
         let currentSlide = 0;
 
         function nextSlide() {
+            if (slides.length === 0) return;
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
@@ -431,7 +404,6 @@
 
         setInterval(nextSlide, 6000);
 
-        // --- NAVIGATION LOGIC ---
         function navigateTo(pageId) {
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             const target = document.getElementById(pageId + '-page');
@@ -453,9 +425,10 @@
             document.getElementById('mobileMenu').classList.add('hidden');
         }
 
-        // --- LIGHTBOX LOGIC ---
         function openLightbox(element) {
-            const imgSrc = element.querySelector('img').src;
+            const img = element.querySelector('img');
+            if (!img) return;
+            const imgSrc = img.src;
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightboxImg');
             lightboxImg.src = imgSrc;
