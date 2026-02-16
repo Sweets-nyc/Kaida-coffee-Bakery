@@ -248,9 +248,10 @@
             </div>
         </section>
 
-        <!-- Hours -->
+        <!-- Hours and Video Section -->
         <section class="py-24 bg-stone-50 px-6">
             <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-stretch">
+                <!-- Hours Card -->
                 <div class="bg-[#FFF9F9] p-10 md:p-16 rounded-[3rem] custom-shadow border border-red-100 flex flex-col justify-center relative overflow-hidden">
                     <div class="absolute -top-10 -right-10 w-40 h-40 bg-red-50 rounded-full blur-3xl opacity-60"></div>
                     <div class="relative">
@@ -292,9 +293,11 @@
                     </div>
                 </div>
 
-        <div class="relative group">
+                <!-- Video Card - Sized to match Hours card height -->
+                <div class="relative group">
                     <div class="absolute inset-0 bg-red-900 rounded-[3rem] rotate-2 transition-transform group-hover:rotate-0 duration-500"></div>
-                    <div class="relative h-full min-h-[450px] rounded-[3rem] overflow-hidden border-[12px] border-white shadow-2xl">
+                    <!-- Added h-full and min-h-0 to allow standard container sizing -->
+                    <div class="relative h-full min-h-[400px] lg:h-[500px] rounded-[3rem] overflow-hidden border-[12px] border-white shadow-2xl">
                         <video autoplay muted loop playsinline class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <source src="video.mp4" type="video/mp4">
                         </video>
@@ -302,8 +305,6 @@
                 </div>
             </div>
         </section>
-
-        
 
         <!-- Visit Us -->
         <section id="visit-section" class="py-24 px-6 bg-white">
