@@ -118,7 +118,7 @@
         .menu-card { aspect-ratio: 8.5 / 11; width: 100%; max-width: 280px; }
         .gallery-item { aspect-ratio: 1/1; width: 100%; }
 
-        .zoom-card img, .zoom-card video {
+        .zoom-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -141,7 +141,7 @@
             display: flex;
             animation: fadeIn 0.3s ease;
         }
-        #lightbox img, #lightbox video {
+        #lightbox img {
             max-width: 90vw;
             max-height: 85vh;
             border-radius: 1rem;
@@ -158,10 +158,7 @@
 
     <!-- Lightbox -->
     <div id="lightbox" onclick="closeLightbox()">
-        <!-- Container for dynamic content -->
-        <div id="lightboxContent" class="relative">
-            <!-- Will be populated by JS -->
-        </div>
+        <img id="lightboxImg" src="" alt="Zoomed view">
         <div class="absolute top-10 right-10 text-red-900">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </div>
@@ -171,12 +168,12 @@
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-xl border-b border-stone-200/50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center space-x-3 group">
-                <div class="h-10 w-10 bg-red-900 rounded-lg flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:rotate-6">K</div>
+                <img src="logo.avif" alt="Kaida Logo" class="h-12 w-auto transition-transform group-hover:rotate-6">
                 <span class="font-bold text-sm tracking-[0.25em] uppercase hidden lg:block text-stone-900 serif-font">Kaida Coffee & Bakery</span>
             </a>
 
             <div class="hidden md:flex items-center space-x-10 font-bold text-[10px] uppercase tracking-[0.2em]">
-                <a href="javascript:void(0)" onclick="navigateTo('home')" class="nav-link text-red-800 border-b-2 border-red-800 py-2 transition-all hover:text-red-700" data-page="home">Home</a>
+                <a href="javascript:void(0)" onclick="navigateTo('home')" class="nav-link text-stone-400 py-2 transition-all hover:text-red-700" data-page="home">Home</a>
                 
                 <div class="dropdown-container relative h-20 flex items-center">
                     <button class="nav-link flex items-center space-x-1 py-2 text-stone-400 hover:text-red-700 transition-all uppercase tracking-[0.2em]" data-page="menu">
@@ -212,9 +209,12 @@
         <!-- Hero with Background Gallery -->
         <section class="hero-container flex items-end justify-center pb-16">
             <div id="bg-gallery-wrapper" class="absolute inset-0">
-                <div class="bg-slide active"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=2000" alt="Kaida Outside"></div>
-                <div class="bg-slide"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2000" alt="Interior Details"></div>
-                <div class="bg-slide"><img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80&w=2000" alt="Bakery Selection"></div>
+                <div class="bg-slide active"><img src="backfround outside.jpg" alt="Kaida Outside"></div>
+                <div class="bg-slide"><img src="background.jpg" alt="Interior Details"></div>
+                <div class="bg-slide"><img src="gallery.jpg" alt="Bakery Selection"></div>
+                <div class="bg-slide"><img src="gallery2.jpg" alt="Fresh Bakes"></div>
+                <div class="bg-slide"><img src="gallery3.jpg" alt="Cafe Vibe"></div>
+                <div class="bg-slide"><img src="outside.webp" alt="Street View"></div>
             </div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
             <div class="relative z-10 flex flex-col md:flex-row gap-6 px-6 w-full max-w-2xl">
@@ -241,7 +241,7 @@
                     </div>
                     <div class="md:w-1/2 relative">
                         <div class="rounded-[3rem] overflow-hidden shadow-2xl rotate-2 transition-transform hover:rotate-0 duration-700">
-                            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=1000" alt="Bakery" class="w-full h-[500px] object-cover">
+                            <img src="picture.webp" alt="Bakery" class="w-full h-[500px] object-cover">
                         </div>
                     </div>
                 </div>
@@ -291,13 +291,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- UPDATED: Video Box Next to Hours -->
                 <div class="relative group">
                     <div class="absolute inset-0 bg-red-900 rounded-[3rem] rotate-2 transition-transform group-hover:rotate-0 duration-500"></div>
                     <div class="relative h-full min-h-[450px] rounded-[3rem] overflow-hidden border-[12px] border-white shadow-2xl">
-                        <video autoplay muted loop playsinline class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <source src="YOUR_GITHUB_HOURS_VIDEO_URL.mp4" type="video/mp4">
-                        </video>
+                        <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80&w=1280" alt="Interior" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     </div>
                 </div>
             </div>
@@ -341,12 +338,12 @@
             <h2 class="text-4xl font-bold text-stone-900 mb-8 serif-font">Seasonal Menu</h2>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center">
-                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=800" alt="Special Drinks"></div>
-                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800" alt="Standard Drinks"></div>
-                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&q=80&w=800" alt="Matcha Specials"></div>
-                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1544787210-2212bb4ac91b?auto=format&fit=crop&q=80&w=800" alt="Non-Coffee Drinks"></div>
-                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=800" alt="Pastry Menu"></div>
-                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&q=80&w=800" alt="More Pastries"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="Special Drinks.webp" alt="Special Drinks"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="drinks.webp" alt="Standard Drinks"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="matcha Specials.webp" alt="Matcha Specials"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="non-coffee.webp" alt="Non-Coffee Drinks"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="pastry.webp" alt="Pastry Menu"></div>
+                <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="pastry1.webp" alt="More Pastries"></div>
             </div>
         </div>
     </main>
@@ -366,15 +363,7 @@
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=1200" alt="Cozy Corner"></div>
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1525648199074-cee30ba79a4a?auto=format&fit=crop&q=80&w=1200" alt="Barista Work"></div>
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=1200" alt="Coffee Pour"></div>
-                
-                <!-- VIDEO BOX LOOP IN GALLERY -->
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)">
-                    <video autoplay muted loop playsinline class="w-full h-full object-cover">
-                        <source src="YOUR_GITHUB_VIDEO_URL_HERE.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80&w=1200" alt="Interior View"></div>
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&q=80&w=1200" alt="Modern Setup"></div>
             </div>
         </div>
@@ -398,7 +387,7 @@
 
     <!-- Footer -->
     <footer class="bg-stone-50 border-t border-stone-200 py-20 text-center">
-        <div class="h-10 w-10 bg-red-900 rounded-lg flex items-center justify-center text-white font-bold text-xl mx-auto mb-12 opacity-40">K</div>
+        <img src="https://lh3.googleusercontent.com/sitesv/APaQ0SSkA5PwHvXR66MNQRD4hcnYli8oip7UGTtig-YfZP21cUIlfAcEcZcVkqUEOpyW5ybtZ_YdUqyrL9WSLzuX6eKfPhxNsCIGT2_2HKqPBOc7vZZrcEK0sPjLD_MhRvXMCZ53CD1btqRXc97edfG6zXey-kGfjt8Ndpma9-JWt5cdV1IlYcwl3RID3eM=w16383" alt="Logo" class="h-10 mx-auto mb-12 opacity-40">
         <p class="text-stone-400 text-[10px] tracking-[0.4em] uppercase">© 2025 Kaida Coffee & Bakery. Ludlow St. NYC</p>
     </footer>
 
@@ -437,34 +426,18 @@
         }
 
         function openLightbox(element) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxContent = document.getElementById('lightboxContent');
-            lightboxContent.innerHTML = ''; // Clear previous
-
             const img = element.querySelector('img');
-            const video = element.querySelector('video');
-
-            if (img) {
-                const newImg = document.createElement('img');
-                newImg.src = img.src;
-                lightboxContent.appendChild(newImg);
-            } else if (video) {
-                const newVideo = document.createElement('video');
-                newVideo.src = video.querySelector('source').src;
-                newVideo.autoplay = true;
-                newVideo.loop = true;
-                newVideo.muted = false; // Allow sound in lightbox
-                newVideo.controls = true;
-                lightboxContent.appendChild(newVideo);
-            }
-
+            if (!img) return;
+            const imgSrc = img.src;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = imgSrc;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden'; 
         }
 
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
-            document.getElementById('lightboxContent').innerHTML = ''; // Stop video playback
             document.body.style.overflow = 'auto'; 
         }
 
