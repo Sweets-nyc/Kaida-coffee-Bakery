@@ -152,6 +152,19 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f5f5f4; }
         ::-webkit-scrollbar-thumb { background: #991b1b; border-radius: 10px; }
+
+        .diet-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #991b1b;
+            background: #fef2f2;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            display: inline-block;
+            margin-top: 4px;
+        }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800">
@@ -287,14 +300,20 @@
                                 </div>
                                 646.858.0018
                             </div>
+                            <!-- Email added here -->
+                            <div class="flex items-center text-stone-700">
+                                <div class="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center mr-4">
+                                    <svg class="w-4 h-4 text-red-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </div>
+                                info@kadia.one
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Video Card - Sized to match Hours card height -->
+                <!-- Video Card -->
                 <div class="relative group">
                     <div class="absolute inset-0 bg-red-900 rounded-[3rem] rotate-2 transition-transform group-hover:rotate-0 duration-500"></div>
-                    <!-- Added h-full and min-h-0 to allow standard container sizing -->
                     <div class="relative h-full min-h-[400px] lg:h-[500px] rounded-[3rem] overflow-hidden border-[12px] border-white shadow-2xl">
                         <video autoplay muted loop playsinline class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <source src="video.mp4" type="video/mp4">
@@ -341,13 +360,79 @@
             <span class="text-red-800 font-bold tracking-[0.4em] uppercase text-[10px] mb-2 block">Our Curation</span>
             <h2 class="text-4xl font-bold text-stone-900 mb-8 serif-font">Seasonal Menu</h2>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center mb-20">
                 <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="Special Drinks.webp" alt="Special Drinks"></div>
                 <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="drinks.webp" alt="Standard Drinks"></div>
                 <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="matcha Specials.webp" alt="Matcha Specials"></div>
                 <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="non-coffee.webp" alt="Non-Coffee Drinks"></div>
                 <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="pastry.webp" alt="Pastry Menu"></div>
                 <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="pastry1.webp" alt="More Pastries"></div>
+            </div>
+
+            <!-- ADDED TEXT SECTIONS FOR COOKIES & SANDWICHES -->
+            <div class="grid md:grid-cols-2 gap-12 text-left mt-16 max-w-5xl mx-auto">
+                
+                <!-- Cookies -->
+                <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-stone-200">
+                    <h3 class="serif-font text-3xl text-red-900 mb-8 flex items-center gap-4">
+                        Cookies
+                        <span class="h-px flex-grow bg-red-100"></span>
+                    </h3>
+                    <div class="space-y-8">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="font-bold text-stone-800">Chunky Peanut Butter Cookie</p>
+                                <span class="diet-label">Vegan</span>
+                            </div>
+                            <span class="font-bold text-stone-400">4.75</span>
+                        </div>
+                        <div class="flex justify-between items-start border-t border-stone-50 pt-6">
+                            <div>
+                                <p class="font-bold text-stone-800">Tahini Chocolate Chunk Cookie</p>
+                                <div class="flex gap-2">
+                                    <span class="diet-label">Vegan</span>
+                                    <span class="diet-label">Gluten Free</span>
+                                </div>
+                            </div>
+                            <span class="font-bold text-stone-400">4.75</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sandwiches -->
+                <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-stone-200">
+                    <h3 class="serif-font text-3xl text-red-900 mb-8 flex items-center gap-4">
+                        Sandwiches
+                        <span class="h-px flex-grow bg-red-100"></span>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2 border-b border-stone-50">
+                            <span class="font-medium text-stone-700 text-sm">Avocado Smash & Havarti Cheese Croissant</span>
+                            <span class="font-bold text-stone-400">8.27</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-stone-50">
+                            <span class="font-medium text-stone-700 text-sm">Avocado Toast</span>
+                            <span class="font-bold text-stone-400">5.00</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-stone-50">
+                            <span class="font-medium text-stone-700 text-sm">Nutella Stuffed Croissant</span>
+                            <span class="font-bold text-stone-400">5.51</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-stone-50">
+                            <span class="font-medium text-stone-700 text-sm">Pastrami Sandwich</span>
+                            <span class="font-bold text-stone-400">9.00</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-stone-50">
+                            <span class="font-medium text-stone-700 text-sm">Pesto Mozzarella</span>
+                            <span class="font-bold text-stone-400">8.00</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="font-medium text-stone-700 text-sm">Turkey Breast & Cheese Croissant</span>
+                            <span class="font-bold text-stone-400">8.27</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </main>
@@ -378,7 +463,6 @@
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="imteruro.webp" alt="Modern Setup"></div>
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="christama.webp" alt="Modern Setup"></div>
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="background.jpg" alt="Modern Setup"></div>
-                
             </div>
         </div>
     </main>
@@ -396,7 +480,6 @@
                     "Crafting sweet moments on Ludlow Street since day one."
                 </div>
 
-                  <!-- Health Section -->
                 <div class="mt-12 p-8 bg-stone-50 rounded-3xl border border-stone-200">
                     <h4 class="font-bold text-stone-900 mb-2">Safety & Standards</h4>
                     <p class="text-sm mb-4">View our NYC Health Department inspection results here:</p>
@@ -405,10 +488,6 @@
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                 </div>
-            </div>
-        </div>
-    </main>
-                
             </div>
         </div>
     </main>
