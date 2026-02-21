@@ -292,10 +292,9 @@
                     </div>
                 </div>
 
-                <!-- Video Card - Sized to match Hours card height -->
+                <!-- Video Card -->
                 <div class="relative group">
                     <div class="absolute inset-0 bg-red-900 rounded-[3rem] rotate-2 transition-transform group-hover:rotate-0 duration-500"></div>
-                    <!-- Added h-full and min-h-0 to allow standard container sizing -->
                     <div class="relative h-full min-h-[400px] lg:h-[500px] rounded-[3rem] overflow-hidden border-[12px] border-white shadow-2xl">
                         <video autoplay muted loop playsinline class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <source src="video.mp4" type="video/mp4">
@@ -342,6 +341,7 @@
             <span class="text-red-800 font-bold tracking-[0.4em] uppercase text-[10px] mb-2 block">Our Curation</span>
             <h2 class="text-4xl font-bold text-stone-900 mb-8 serif-font">Seasonal Menu</h2>
             
+            <!-- Grid is 1 column on smallest, 2 on tablet (sm), and 3 on desktop (lg) -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center">
                 <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="Special Drinks.webp" alt="Special Drinks"></div>
                 <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="drinks.webp" alt="Standard Drinks"></div>
@@ -361,6 +361,7 @@
                 <h2 class="text-4xl font-bold text-stone-900 mb-4 serif-font">Interior & Lifestyle</h2>
                 <p class="text-stone-400 font-light italic">Snapshots from the shop</p>
             </div>
+            <!-- Grid is 1 column on smallest, 2 on small (sm), 3 on medium (md), 4 on desktop (lg) -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="scenic.webp" alt="Cafe Detail"></div>
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="hsrim.jpg" alt="Latte Art"></div>
@@ -379,7 +380,6 @@
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="imteruro.webp" alt="Modern Setup"></div>
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="christama.webp" alt="Modern Setup"></div>
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="background.jpg" alt="Modern Setup"></div>
-                
             </div>
         </div>
     </main>
@@ -397,7 +397,6 @@
                     "Crafting sweet moments on Ludlow Street since day one."
                 </div>
 
-                  <!-- Health Section -->
                 <div class="mt-12 p-8 bg-stone-50 rounded-3xl border border-stone-200">
                     <h4 class="font-bold text-stone-900 mb-2">Safety & Standards</h4>
                     <p class="text-sm mb-4">View our NYC Health Department inspection results here:</p>
@@ -406,10 +405,6 @@
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                 </div>
-            </div>
-        </div>
-    </main>
-                
             </div>
         </div>
     </main>
