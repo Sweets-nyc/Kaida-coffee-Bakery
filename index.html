@@ -35,10 +35,9 @@
             opacity: 1;
         }
 
-        /* Pan Effect: Moves image up and down slowly */
         .bg-slide img {
             width: 100%;
-            height: 120%; /* Taller than container to allow panning */
+            height: 120%;
             object-fit: cover;
             position: absolute;
             top: 0;
@@ -81,7 +80,6 @@
         .page.active { display: block; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Dropdown Styles */
         .dropdown-container:hover .dropdown-menu {
             display: block;
             animation: slideDown 0.2s ease-out;
@@ -104,18 +102,14 @@
 
         .zoom-card {
             background-color: #fff;
-            border-radius: 1.5rem;
+            border-radius: 0.75rem;
             overflow: hidden;
             transition: all 0.4s ease;
             border: 1px solid #f5f5f4;
             cursor: zoom-in;
         }
-        .zoom-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 30px -10px rgba(153, 27, 27, 0.15);
-        }
         
-        .menu-card { aspect-ratio: 8.5 / 11; width: 100%; max-width: 280px; }
+        .menu-card { aspect-ratio: 8.5 / 11; width: 100%; }
         .gallery-item { aspect-ratio: 1/1; width: 100%; }
 
         .zoom-card img {
@@ -124,7 +118,6 @@
             object-fit: cover;
         }
 
-        /* Lightbox Styles */
         #lightbox {
             display: none;
             position: fixed;
@@ -135,16 +128,16 @@
             cursor: zoom-out;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 1rem;
         }
         #lightbox.active {
             display: flex;
             animation: fadeIn 0.3s ease;
         }
         #lightbox img {
-            max-width: 90vw;
+            max-width: 95vw;
             max-height: 85vh;
-            border-radius: 1rem;
+            border-radius: 0.5rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             object-fit: contain;
         }
@@ -159,7 +152,7 @@
     <!-- Lightbox -->
     <div id="lightbox" onclick="closeLightbox()">
         <img id="lightboxImg" src="" alt="Zoomed view">
-        <div class="absolute top-10 right-10 text-red-900">
+        <div class="absolute top-6 right-6 text-red-900">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </div>
     </div>
@@ -168,13 +161,12 @@
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-xl border-b border-stone-200/50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center space-x-3 group">
-                <img src="logo.avif" alt="Kaida Logo" class="h-12 w-auto transition-transform group-hover:rotate-6">
+                <img src="logo.avif" alt="Kaida Logo" class="h-10 w-auto transition-transform group-hover:rotate-6">
                 <span class="font-bold text-sm tracking-[0.25em] uppercase hidden lg:block text-stone-900 serif-font">Kaida Coffee & Bakery</span>
             </a>
 
             <div class="hidden md:flex items-center space-x-10 font-bold text-[10px] uppercase tracking-[0.2em]">
                 <a href="javascript:void(0)" onclick="navigateTo('home')" class="nav-link text-stone-400 py-2 transition-all hover:text-red-700" data-page="home">Home</a>
-                
                 <div class="dropdown-container relative h-20 flex items-center">
                     <button class="nav-link flex items-center space-x-1 py-2 text-stone-400 hover:text-red-700 transition-all uppercase tracking-[0.2em]" data-page="menu">
                         <span>Experience</span>
@@ -185,7 +177,6 @@
                         <a href="javascript:void(0)" onclick="navigateTo('gallery')" class="block px-6 py-3 text-stone-600 hover:bg-stone-50 hover:text-red-800 transition-colors">Gallery</a>
                     </div>
                 </div>
-
                 <a href="javascript:void(0)" onclick="navigateTo('about')" class="nav-link py-2 transition-all hover:text-red-700 text-stone-400" data-page="about">About</a>
                 <a href="https://www.grubhub.com/restaurant/kaida-coffee--bakery-122-ludlow-st-new-york/3034934" target="_blank" class="py-2 transition-all hover:text-red-700 text-stone-400">Order</a>
             </div>
@@ -196,7 +187,7 @@
         </div>
         
         <div id="mobileMenu" class="hidden md:hidden bg-white px-6 py-8 space-y-6 font-bold uppercase text-[10px] tracking-widest border-b border-stone-100">
-            <a href="javascript:void(0)" onclick="navigateTo('home')" class="block text-red-800">Home</a>
+            <a href="javascript:void(0)" onclick="navigateTo('home')" class="block text-stone-500">Home</a>
             <a href="javascript:void(0)" onclick="navigateTo('menu')" class="block text-stone-500">Menu</a>
             <a href="javascript:void(0)" onclick="navigateTo('gallery')" class="block text-stone-500">Gallery</a>
             <a href="javascript:void(0)" onclick="navigateTo('about')" class="block text-stone-500">About</a>
@@ -206,7 +197,7 @@
 
     <!-- HOME PAGE -->
     <main id="home-page" class="page active">
-        <!-- Hero with Background Gallery -->
+        <!-- Hero Section -->
         <section class="hero-container flex items-end justify-center pb-16">
             <div id="bg-gallery-wrapper" class="absolute inset-0">
                 <div class="bg-slide active"><img src="backfround outside.jpg" alt="Kaida Outside"></div>
@@ -216,17 +207,17 @@
                 <div class="bg-slide"><img src="outside.webp" alt="Street View"></div>
             </div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
-            <div class="relative z-10 flex flex-col md:flex-row gap-6 px-6 w-full max-w-2xl">
-                <button onclick="navigateTo('menu')" class="fade-in-up stagger-1 btn-red bg-red-900 text-white px-10 py-5 rounded-2xl shadow-xl flex items-center justify-center space-x-3 w-full">
-                    <span class="font-bold uppercase tracking-[0.25em] text-[11px]">View Menu</span>
+            <div class="relative z-10 flex flex-col md:flex-row gap-4 px-4 w-full max-w-2xl">
+                <button onclick="navigateTo('menu')" class="fade-in-up stagger-1 btn-red bg-red-900 text-white px-8 py-4 rounded-xl shadow-xl flex items-center justify-center space-x-3 w-full">
+                    <span class="font-bold uppercase tracking-[0.25em] text-[10px]">View Menu</span>
                 </button>
-                <a href="https://www.grubhub.com/restaurant/kaida-coffee--bakery-122-ludlow-st-new-york/3034934" target="_blank" class="fade-in-up stagger-2 btn-red bg-red-900 text-white px-10 py-5 rounded-2xl shadow-xl flex items-center justify-center space-x-3 w-full">
-                    <span class="font-bold uppercase tracking-[0.25em] text-[11px]">Order Now</span>
+                <a href="https://www.grubhub.com/restaurant/kaida-coffee--bakery-122-ludlow-st-new-york/3034934" target="_blank" class="fade-in-up stagger-2 btn-red bg-red-900 text-white px-8 py-4 rounded-xl shadow-xl flex items-center justify-center space-x-3 w-full">
+                    <span class="font-bold uppercase tracking-[0.25em] text-[10px]">Order Now</span>
                 </a>
             </div>
         </section>
 
-        <!-- Seasonal Update -->
+        <!-- Seasonal Update Section -->
         <section class="py-24 px-6 bg-white overflow-hidden">
             <div class="max-w-6xl mx-auto">
                 <div class="flex flex-col md:flex-row items-center gap-16">
@@ -248,59 +239,37 @@
         </section>
 
         <!-- Hours and Video Section -->
-        <section class="py-24 bg-stone-50 px-6">
+        <section class="py-12 bg-stone-50 px-4">
             <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-stretch">
-                <!-- Hours Card - REFINED MOBILE 3-ROW GRID LAYOUT -->
-                <div class="bg-[#FFF9F9] rounded-[2.5rem] md:rounded-[3rem] custom-shadow border border-red-100 flex flex-col md:flex-row overflow-hidden">
-                    <!-- Top/Left Decorative Section -->
-                    <div class="h-32 md:h-auto md:w-1/3 bg-red-900 relative overflow-hidden">
-                        <img src="gallery3.jpg" alt="Interior" class="absolute inset-0 w-full h-full object-cover opacity-60">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="serif-font text-white text-3xl font-bold italic md:-rotate-90">Kaida</span>
+                <!-- Hours Card -->
+                <div class="bg-[#FFF9F9] rounded-[2rem] custom-shadow border border-red-100 p-8 md:p-12">
+                    <div class="flex items-center space-x-4 mb-8">
+                        <div class="w-10 h-10 bg-red-900 text-white rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
+                        <h3 class="text-2xl font-bold text-stone-900 serif-font italic">Sweet Moments</h3>
                     </div>
-
-                    <!-- Content Section -->
-                    <div class="flex-1 p-8 md:p-14 flex flex-col justify-center relative">
-                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-red-50 rounded-full blur-3xl opacity-60"></div>
-                        
-                        <div class="relative">
-                            <div class="flex items-center space-x-4 mb-8">
-                                <div class="w-10 h-10 bg-red-900 text-white rounded-full flex items-center justify-center shadow-lg">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                </div>
-                                <h3 class="text-2xl font-bold text-stone-900 serif-font italic">Sweet Moments</h3>
-                            </div>
-
-                            <!-- THE GRID: Optimized for 3 distinct rows -->
-                            <div class="space-y-6">
-                                <div class="grid grid-cols-2 gap-4 pb-4 border-b border-red-50">
-                                    <span class="text-[10px] font-bold uppercase tracking-widest text-red-900/60 self-center">Mon — Fri</span>
-                                    <span class="text-sm font-semibold text-stone-800 text-right">7am – 5pm</span>
-                                </div>
-                                <div class="grid grid-cols-2 gap-4 pb-4 border-b border-red-50">
-                                    <span class="text-[10px] font-bold uppercase tracking-widest text-red-900/60 self-center">Saturday</span>
-                                    <span class="text-sm font-semibold text-stone-800 text-right">8am – 5pm</span>
-                                </div>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <span class="text-[10px] font-bold uppercase tracking-widest text-red-900/60 self-center">Sunday</span>
-                                    <span class="text-sm font-semibold text-stone-800 text-right">9am – 5pm</span>
-                                </div>
-                            </div>
-
-                            <div class="mt-10 pt-8 border-t border-red-100/50 flex items-center text-stone-500">
-                                <svg class="w-4 h-4 mr-3 text-red-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
-                                <span class="text-xs font-medium uppercase tracking-tighter">122 Ludlow St, Lower East Side</span>
-                            </div>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center py-4 border-b border-red-50">
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-red-900/60">Mon — Fri</span>
+                            <span class="text-sm font-semibold text-stone-800">7am – 5pm</span>
+                        </div>
+                        <div class="flex justify-between items-center py-4 border-b border-red-50">
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-red-900/60">Saturday</span>
+                            <span class="text-sm font-semibold text-stone-800">8am – 5pm</span>
+                        </div>
+                        <div class="flex justify-between items-center py-4">
+                            <span class="text-[11px] font-bold uppercase tracking-widest text-red-900/60">Sunday</span>
+                            <span class="text-sm font-semibold text-stone-800">9am – 5pm</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Video Card -->
-                <div class="relative group">
-                    <div class="absolute inset-0 bg-red-900 rounded-[3rem] rotate-2 transition-transform group-hover:rotate-0 duration-500"></div>
-                    <div class="relative h-full min-h-[400px] lg:h-[500px] rounded-[3rem] overflow-hidden border-[12px] border-white shadow-2xl">
-                        <video autoplay muted loop playsinline class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="relative group h-full min-h-[400px]">
+                    <div class="absolute inset-0 bg-red-900 rounded-[2rem] rotate-2 transition-transform group-hover:rotate-0 duration-500"></div>
+                    <div class="relative h-full rounded-[2rem] overflow-hidden border-[10px] border-white shadow-2xl">
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover">
                             <source src="video.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -308,30 +277,24 @@
             </div>
         </section>
 
-        <!-- Visit Us -->
+        <!-- Visit Us Section -->
         <section id="visit-section" class="py-24 px-6 bg-white">
-            <div class="max-w-6xl mx-auto bg-red-900 rounded-[3.5rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(153,27,27,0.3)]">
+            <div class="max-w-6xl mx-auto bg-red-900 rounded-[3.5rem] overflow-hidden shadow-2xl">
                 <div class="grid lg:grid-cols-2">
                     <div class="h-[400px] lg:h-auto overflow-hidden">
-                        <iframe class="w-full h-full grayscale-[0.8] brightness-[0.9] contrast-[1.1]" src="https://maps-api-ssl.google.com/maps?hl=en&ll=40.719309,-73.988417&output=embed&q=122+Ludlow+St,+New+York,+NY+10002+(Kaida+Coffee)&z=17" allowfullscreen loading="lazy"></iframe>
+                        <iframe class="w-full h-full grayscale-[0.8] brightness-[0.9]" src="https://maps-api-ssl.google.com/maps?hl=en&ll=40.719309,-73.988417&output=embed&q=122+Ludlow+St,+New+York,+NY+10002+(Kaida+Coffee)&z=17" allowfullscreen loading="lazy"></iframe>
                     </div>
-                    <div class="p-12 md:p-20 text-white flex flex-col justify-center relative">
-                        <div class="absolute top-10 right-10 text-white/10 italic serif-font text-8xl pointer-events-none">Love</div>
-                        <div class="relative z-10">
-                            <span class="text-red-200 font-bold tracking-[0.4em] uppercase text-[10px] mb-6 block">Our Location</span>
-                            <h3 class="text-4xl md:text-5xl font-bold mb-8 serif-font">Come say hi!</h3>
-                            <p class="text-red-100/80 text-lg mb-12 font-light leading-relaxed max-w-md">
-                                We're located in the heart of Lower East Side. Find us tucked away on Ludlow, waiting with a fresh pot of coffee.
-                            </p>
-                            <div class="flex items-center space-x-6">
-                                <a href="https://www.instagram.com/kaidausa/?hl=en" target="_blank" class="w-14 h-14 flex items-center justify-center bg-white/10 backdrop-blur-md rounded-2xl hover:bg-white hover:text-red-900 transition-all hover:-translate-y-2 group">
-                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                                </a>
-                                <a href="https://x.com/KaidaUsa" target="_blank" class="w-14 h-14 flex items-center justify-center bg-white/10 backdrop-blur-md rounded-2xl hover:bg-white hover:text-red-900 transition-all hover:-translate-y-2 group">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                                </a>
-                                <a href="https://www.google.com/maps/dir/?api=1&destination=122+Ludlow+St+New+York" target="_blank" class="px-8 py-4 bg-white text-red-900 rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:bg-red-50 transition-all">Directions</a>
-                            </div>
+                    <div class="p-12 md:p-20 text-white flex flex-col justify-center">
+                        <span class="text-red-200 font-bold tracking-[0.4em] uppercase text-[10px] mb-6 block">Our Location</span>
+                        <h3 class="text-4xl md:text-5xl font-bold mb-8 serif-font">Come say hi!</h3>
+                        <p class="text-red-100/80 text-lg mb-12 font-light leading-relaxed">
+                            We're located in the heart of Lower East Side. Find us on Ludlow Street.
+                        </p>
+                        <div class="flex items-center space-x-6">
+                            <a href="https://www.instagram.com/kaidausa/?hl=en" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white/10 rounded-xl hover:bg-white hover:text-red-900 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </a>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=122+Ludlow+St+New+York" target="_blank" class="px-8 py-4 bg-white text-red-900 rounded-2xl font-bold uppercase tracking-widest text-[10px]">Directions</a>
                         </div>
                     </div>
                 </div>
@@ -340,11 +303,13 @@
     </main>
 
     <!-- MENU PAGE -->
-    <main id="menu-page" class="page pt-32 pb-24 bg-stone-100">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <span class="text-red-800 font-bold tracking-[0.4em] uppercase text-[10px] mb-2 block">Our Curation</span>
-            <h2 class="text-4xl font-bold text-stone-900 mb-8 serif-font">Seasonal Menu</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center">
+    <main id="menu-page" class="page pt-24 pb-24 bg-stone-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <span class="text-red-800 font-bold tracking-[0.4em] uppercase text-[9px] mb-2 block">Our Curation</span>
+                <h2 class="text-3xl font-bold text-stone-900 serif-font">Menu</h2>
+            </div>
+            <div class="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 gap-3">
                 <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="Special Drinks.webp" alt="Special Drinks"></div>
                 <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="drinks.webp" alt="Standard Drinks"></div>
                 <div class="zoom-card menu-card" onclick="openLightbox(this)"><img src="matcha Specials.webp" alt="Matcha Specials"></div>
@@ -356,64 +321,54 @@
     </main>
 
     <!-- GALLERY PAGE -->
-    <main id="gallery-page" class="page pt-32 pb-24 bg-stone-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-red-800 font-bold tracking-[0.4em] uppercase text-[10px] mb-2 block">Atmosphere</span>
-                <h2 class="text-4xl font-bold text-stone-900 mb-4 serif-font">Interior & Lifestyle</h2>
-                <p class="text-stone-400 font-light italic">Snapshots from the shop</p>
+    <main id="gallery-page" class="page pt-24 pb-24 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <span class="text-red-800 font-bold tracking-[0.4em] uppercase text-[9px] mb-2 block">Atmosphere</span>
+                <h2 class="text-3xl font-bold text-stone-900 serif-font">Gallery</h2>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="scenic.webp" alt="Cafe Detail"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="hsrim.jpg" alt="Latte Art"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="kaidss.jpg" alt="Bakery Display"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="mireimag.webp" alt="Cozy Corner"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="morebre.webp" alt="Barista Work"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="sand.webp" alt="Coffee Pour"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="croissan.webp" alt="Interior View"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="bread.webp" alt="Modern Setup"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="picture.webp" alt="Modern Setup"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="image.jpg" alt="Bakery Display"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="another.webp" alt="Cozy Corner"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="anatha.webp" alt="Barista Work"></div>
+            <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-2">
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="scenic.webp" alt="Cafe"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="hsrim.jpg" alt="Latte"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="kaidss.jpg" alt="Bakery"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="mireimag.webp" alt="Cozy"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="morebre.webp" alt="Barista"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="sand.webp" alt="Coffee"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="croissan.webp" alt="Pastry"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="bread.webp" alt="Modern"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="picture.webp" alt="Store"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="image.jpg" alt="Display"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="another.webp" alt="Corner"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="anatha.webp" alt="Vibe"></div>
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="gyps.webp" alt="Coffee Pour"></div>
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="stand.webp" alt="Interior View"></div>
                 <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="imteruro.webp" alt="Modern Setup"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="christama.webp" alt="Modern Setup"></div>
-                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="background.jpg" alt="Modern Setup"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="christama.webp" alt="Christmas"></div>
+                <div class="zoom-card gallery-item" onclick="openLightbox(this)"><img src="background.jpg" alt="Background"></div>
             </div>
         </div>
     </main>
 
     <!-- ABOUT PAGE -->
-    <main id="about-page" class="page pt-32 pb-24">
-        <div class="max-w-3xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-red-800 font-bold tracking-[0.4em] uppercase text-[10px] mb-4 block">Our Story</span>
-                <h1 class="text-4xl font-bold text-stone-900 mb-6 serif-font">About Kaida</h1>
-            </div>
-            <div class="space-y-10 text-stone-600 leading-relaxed text-lg font-light">
+    <main id="about-page" class="page pt-24 pb-24">
+        <div class="max-w-2xl mx-auto px-6">
+            <h1 class="text-3xl font-bold text-stone-900 mb-6 serif-font text-center">About Kaida</h1>
+            <div class="space-y-6 text-stone-600 text-sm">
                 <p>Kaida Coffee and Bakery is your neighborhood sanctuary in the heart of NYC. We pride ourselves on the finest artisanal coffee and freshly baked pastries.</p>
-                <div class="bg-red-50/50 p-10 rounded-[2.5rem] border-l-8 border-red-900 italic serif-font text-xl">
-                    "Crafting sweet moments on Ludlow Street since day one."
+                <div class="bg-red-50/50 p-6 rounded-2xl border-l-4 border-red-900 italic serif-font">
+                    "Crafting sweet moments on Ludlow Street."
                 </div>
-
-                <div class="mt-12 p-8 bg-stone-50 rounded-3xl border border-stone-200">
-                    <h4 class="font-bold text-stone-900 mb-2">Safety & Standards</h4>
-                    <p class="text-sm mb-4">View our NYC Health Department inspection results here:</p>
-                    <a href="https://a816-health.nyc.gov/ABCEatsRestaurants/#!/Search/50150160" target="_blank" class="text-red-900 font-bold hover:underline inline-flex items-center gap-2">
-                        NYC Health Inspection Results
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div class="pt-6">
+                    <a href="https://a816-health.nyc.gov/ABCEatsRestaurants/#!/Search/50150160" target="_blank" class="text-red-900 font-bold text-xs uppercase tracking-widest hover:underline">
+                        Health Inspection Results
                     </a>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-stone-50 border-t border-stone-200 py-20 text-center">
-        <img src="logo.avif" alt="Logo" class="h-10 mx-auto mb-12 opacity-40">
-        <p class="text-stone-400 text-[10px] tracking-[0.4em] uppercase">© 2025 Kaida Coffee & Bakery. Ludlow St. NYC</p>
+    <footer class="bg-stone-50 border-t border-stone-200 py-12 text-center">
+        <p class="text-stone-400 text-[8px] tracking-[0.4em] uppercase">© 2025 Kaida Coffee & Bakery. Ludlow St. NYC</p>
     </footer>
 
     <script>
@@ -439,11 +394,11 @@
             
             document.querySelectorAll('.nav-link').forEach(link => {
                 const linkPage = link.getAttribute('data-page');
-                if (linkPage === pageId || (linkPage === 'menu' && (pageId === 'gallery' || pageId === 'menu'))) {
-                    link.classList.add('text-red-800', 'border-b-2', 'border-red-800');
+                if (linkPage === pageId) {
+                    link.classList.add('text-red-800');
                     link.classList.remove('text-stone-400');
                 } else {
-                    link.classList.remove('text-red-800', 'border-b-2', 'border-red-800');
+                    link.classList.remove('text-red-800');
                     link.classList.add('text-stone-400');
                 }
             });
@@ -453,10 +408,9 @@
         function openLightbox(element) {
             const img = element.querySelector('img');
             if (!img) return;
-            const imgSrc = img.src;
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightboxImg');
-            lightboxImg.src = imgSrc;
+            lightboxImg.src = img.src;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden'; 
         }
