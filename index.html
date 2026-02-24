@@ -106,7 +106,7 @@
             overflow: hidden;
             transition: all 0.4s ease;
             border: 1px solid #f5f5f4;
-            cursor: zoom-in;
+            cursor: pointer;
         }
         
         .menu-card { aspect-ratio: 8.5 / 11; width: 100%; }
@@ -123,7 +123,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.95); /* Darker for better contrast with indicators */
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(15px);
             z-index: 1000;
             flex-direction: column;
@@ -146,7 +146,7 @@
         }
         #lightboxImg {
             max-width: 90vw;
-            max-height: 70vh; /* Reduced to make room for indicators */
+            max-height: 70vh;
             border-radius: 0.5rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             object-fit: contain;
@@ -168,29 +168,31 @@
         .nav-prev { left: 20px; }
         .nav-next { right: 20px; }
         
-        /* Croissant Indicators */
         .indicator-container {
             display: flex;
-            gap: 8px;
+            gap: 12px;
             padding: 20px;
             max-width: 90vw;
             overflow-x: auto;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
+            align-items: center;
         }
-        .indicator-container::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+        .indicator-container::-webkit-scrollbar { display: none; }
 
-        .croissant-dot {
+        .heart-dot {
             width: 24px;
             height: 24px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0.4;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0.3;
             flex-shrink: 0;
+            color: white;
         }
-        .croissant-dot.active {
+        .heart-dot.active {
             opacity: 1;
-            transform: scale(1.2);
-            filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6));
+            transform: scale(1.4);
+            color: #fecaca; /* red-200 */
+            filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.8));
         }
 
         ::-webkit-scrollbar { width: 8px; }
@@ -218,10 +220,7 @@
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
 
-        <!-- Indicators Row -->
-        <div id="indicators" class="indicator-container mb-4">
-            <!-- Croissant SVGs injected via JS -->
-        </div>
+        <div id="indicators" class="indicator-container mb-4"></div>
 
         <div class="absolute bottom-4 text-stone-500 text-[10px] tracking-widest uppercase md:hidden opacity-50">
             Swipe left or right
@@ -232,7 +231,7 @@
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-xl border-b border-stone-200/50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center space-x-3 group">
-                <img src="logo.avif" alt="Kaida Logo" class="h-10 w-auto transition-transform group-hover:rotate-6">
+                <img src="logo.avif" alt="Kaida Logo" class="h-10 w-auto transition-transform group-hover:rotate-6" onerror="this.src='https://via.placeholder.com/40?text=K'">
                 <span class="font-bold text-sm tracking-[0.25em] uppercase hidden lg:block text-stone-900 serif-font">Kaida Coffee & Bakery</span>
             </a>
 
@@ -287,11 +286,9 @@
             </div>
         </section>
 
-        <!-- THE HEART OF LUDLOW SECTION -->
         <section class="py-12 md:py-24 px-4 md:px-6 bg-white overflow-hidden">
             <div class="max-w-6xl mx-auto">
                 <div class="flex flex-row items-center gap-4 md:gap-16">
-                    <!-- Text side -->
                     <div class="w-1/2 md:w-1/2">
                         <span class="text-red-800 font-bold tracking-[0.2em] md:tracking-[0.4em] uppercase text-[8px] md:text-[10px] mb-2 md:mb-4 block">Handcrafted Experience</span>
                         <h2 class="text-xl md:text-6xl font-bold mb-3 md:mb-8 text-stone-900 leading-tight serif-font">The Heart of Ludlow</h2>
@@ -300,7 +297,6 @@
                         </p>
                         <a href="javascript:void(0)" onclick="navigateTo('menu')" class="inline-block border border-red-900 md:border-2 text-red-900 px-3 md:px-8 py-2 md:py-4 rounded-full font-bold hover:bg-red-900 hover:text-white transition-all uppercase tracking-widest text-[7px] md:text-[10px]">Explore Menu</a>
                     </div>
-                    <!-- Image side -->
                     <div class="w-1/2 md:w-1/2 relative">
                         <div class="rounded-2xl md:rounded-[3rem] overflow-hidden shadow-xl md:shadow-2xl rotate-1 md:rotate-2 transition-transform hover:rotate-0 duration-700">
                             <img src="picture.webp" alt="Bakery" class="w-full h-32 md:h-[500px] object-cover">
@@ -310,10 +306,8 @@
             </div>
         </section>
 
-        <!-- Hours and Video Section -->
         <section class="py-12 bg-stone-50 px-4">
             <div class="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-2 gap-4 md:gap-12 items-stretch">
-                <!-- Hours Card -->
                 <div class="bg-[#FFF9F9] rounded-[1.5rem] md:rounded-[2rem] custom-shadow border border-red-100 p-4 md:p-12">
                     <div class="flex items-center space-x-2 md:space-x-4 mb-4 md:mb-8">
                         <div class="w-6 h-6 md:w-10 md:h-10 bg-red-900 text-white rounded-full flex items-center justify-center">
@@ -337,7 +331,6 @@
                     </div>
                 </div>
 
-                <!-- Video Card -->
                 <div class="relative group h-full">
                     <div class="absolute inset-0 bg-red-900 rounded-[1.5rem] md:rounded-[2rem] rotate-1 md:rotate-2 transition-transform group-hover:rotate-0 duration-500"></div>
                     <div class="relative h-full rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border-[4px] md:border-[10px] border-white shadow-2xl">
@@ -349,7 +342,6 @@
             </div>
         </section>
 
-        <!-- VISIT SECTION -->
         <section id="visit-section" class="py-12 md:py-24 px-4 md:px-6 bg-white">
             <div class="max-w-6xl mx-auto bg-red-900 rounded-[1.5rem] md:rounded-[3.5rem] overflow-hidden shadow-2xl">
                 <div class="flex flex-row lg:grid lg:grid-cols-2">
@@ -381,7 +373,7 @@
                 <span class="text-red-800 font-bold tracking-[0.4em] uppercase text-[9px] mb-2 block">Our Curation</span>
                 <h2 class="text-3xl font-bold text-stone-900 serif-font">Menu</h2>
             </div>
-            <div class="grid grid-cols-3 gap-3">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="menu-grid">
                 <div class="zoom-card menu-card" onclick="openLightbox(this, 0)"><img src="Special Drinks.webp" alt="Special Drinks"></div>
                 <div class="zoom-card menu-card" onclick="openLightbox(this, 1)"><img src="drinks.webp" alt="Standard Drinks"></div>
                 <div class="zoom-card menu-card" onclick="openLightbox(this, 2)"><img src="matcha Specials.webp" alt="Matcha Specials"></div>
@@ -438,7 +430,7 @@
     </footer>
 
     <script>
-        // --- SLIDESHOW LOGIC ---
+        // --- HERO BACKGROUND GALLERY ---
         const slides = document.querySelectorAll('.bg-slide');
         let currentSlide = 0;
         setInterval(() => {
@@ -448,7 +440,7 @@
             slides[currentSlide].classList.add('active');
         }, 6000);
 
-        // --- NAVIGATION LOGIC ---
+        // --- NAVIGATION ---
         function navigateTo(pageId) {
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             const target = document.getElementById(pageId + '-page');
@@ -463,45 +455,50 @@
             document.getElementById('mobileMenu').classList.toggle('hidden');
         });
 
-        // --- LIGHTBOX & SWIPE LOGIC ---
+        // --- LIGHTBOX LOGIC ---
         let currentImgIndex = 0;
         let currentGalleryItems = [];
         let touchStartX = 0;
         let touchEndX = 0;
 
-        // Custom Croissant SVG String
-        const croissantSvg = `
-            <svg class="croissant-dot" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M2,12 C2,12 3,5 12,5 C21,5 22,12 22,12 C22,12 21,19 12,19 C3,19 2,12 2,12 Z" fill="#FBBF24" stroke="#D97706" stroke-width="1"/>
-                <path d="M7,7 Q12,12 17,7" fill="none" stroke="#D97706" stroke-width="1" opacity="0.5"/>
-                <path d="M7,17 Q12,12 17,17" fill="none" stroke="#D97706" stroke-width="1" opacity="0.5"/>
+        const heartSvg = `
+            <svg class="heart-dot" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
             </svg>
         `;
 
         function openLightbox(element, index) {
             const parent = element.parentElement;
-            currentGalleryItems = Array.from(parent.querySelectorAll('img')).map(img => img.src);
+            const images = Array.from(parent.querySelectorAll('img'));
+            currentGalleryItems = images.map(img => img.src);
             currentImgIndex = index;
+            
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
             
             generateIndicators();
             updateLightbox();
-            document.getElementById('lightbox').classList.add('active');
-            document.body.style.overflow = 'hidden';
         }
 
         function generateIndicators() {
             const container = document.getElementById('indicators');
             container.innerHTML = '';
+            
             currentGalleryItems.forEach((_, idx) => {
-                const dot = document.createElement('div');
-                dot.innerHTML = croissantSvg;
-                dot.firstChild.classList.add('croissant-dot');
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = heartSvg.trim();
+                const dot = wrapper.firstChild;
+                
+                if (idx === currentImgIndex) {
+                    dot.classList.add('active');
+                }
+
                 dot.onclick = (e) => {
                     e.stopPropagation();
                     const diff = idx - currentImgIndex;
                     if(diff !== 0) changeImage(diff);
                 };
-                container.appendChild(dot.firstChild);
+                container.appendChild(dot);
             });
         }
 
@@ -518,8 +515,9 @@
             setTimeout(() => {
                 currentImgIndex = (currentImgIndex + direction + currentGalleryItems.length) % currentGalleryItems.length;
                 updateLightbox();
+                
                 imgEl.style.transform = direction > 0 ? 'translateX(-50px)' : 'translateX(50px)';
-                imgEl.offsetHeight;
+                imgEl.offsetHeight; // force reflow
                 imgEl.style.opacity = '1';
                 imgEl.style.transform = 'translateX(0)';
             }, 200);
@@ -529,8 +527,7 @@
             const imgEl = document.getElementById('lightboxImg');
             imgEl.src = currentGalleryItems[currentImgIndex];
             
-            // Update active state of croissant dots
-            const dots = document.querySelectorAll('.croissant-dot');
+            const dots = document.querySelectorAll('.heart-dot');
             dots.forEach((dot, idx) => {
                 if (idx === currentImgIndex) {
                     dot.classList.add('active');
