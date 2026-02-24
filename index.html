@@ -309,9 +309,9 @@
 
         <!-- Hours & Contact -->
         <section class="py-12 md:py-24 bg-stone-50 px-4">
-            <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-center lg:items-stretch">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-start justify-center">
                 <!-- Hours & Contact Card -->
-                <div class="w-full md:w-1/2 bg-[#FFF9F9] rounded-[2rem] custom-shadow border border-red-100 p-8 md:p-12">
+                <div class="w-full md:w-1/2 bg-[#FFF9F9] rounded-[2rem] custom-shadow border border-red-100 p-8 md:p-12 self-stretch flex flex-col">
                     <div class="flex items-center space-x-4 mb-6">
                         <div class="w-10 h-10 bg-red-900 text-white rounded-full flex items-center justify-center">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -334,29 +334,48 @@
                         </div>
                     </div>
 
-                    <div class="space-y-3 pt-6 border-t border-red-100">
-                        <p class="flex items-center space-x-3 text-stone-600">
-                            <svg class="w-4 h-4 text-red-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></p>
-                            <span class="text-xs font-bold uppercase tracking-wider">122 Ludlow Street, NY</span>
-                        </p>
-                        <p class="flex items-center space-x-3 text-stone-600">
-                            <svg class="w-4 h-4 text-red-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                            <span class="text-xs font-bold uppercase tracking-wider">+1 646-858-0018</span>
-                        </p>
-                        <p class="flex items-center space-x-3 text-stone-600">
-                            <svg class="w-4 h-4 text-red-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            <span class="text-xs font-bold uppercase tracking-wider">info@kadia.one</span>
-                        </p>
+                    <div class="space-y-4 pt-6 border-t border-red-100 mt-auto">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2 bg-red-100 rounded-lg text-red-900 shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-red-900/50 mb-1">Address</h4>
+                                <p class="text-xs font-bold text-stone-700 uppercase">122 Ludlow Street, NY</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2 bg-red-100 rounded-lg text-red-900 shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-red-900/50 mb-1">Phone</h4>
+                                <p class="text-xs font-bold text-stone-700 uppercase">+1 646-858-0018</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2 bg-red-100 rounded-lg text-red-900 shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-red-900/50 mb-1">E-mail</h4>
+                                <p class="text-xs font-bold text-stone-700">info@kadia.one</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Video Card -->
-                <div class="w-full md:w-1/2 relative group lg:max-w-lg mx-auto h-full min-h-[400px]">
+                <!-- Video Card - Fixed Grid size for desktop -->
+                <div class="w-full md:w-5/12 lg:w-4/12 relative group max-w-sm md:max-h-[550px]">
                     <div class="absolute inset-0 bg-red-900 rounded-[2rem] rotate-2 transition-transform group-hover:rotate-0 duration-500"></div>
-                    <div class="relative h-full rounded-[2rem] overflow-hidden border-[10px] border-white shadow-2xl">
+                    <div class="relative aspect-[9/16] md:aspect-auto md:h-full rounded-[2rem] overflow-hidden border-[10px] border-white shadow-2xl bg-stone-100">
                         <video autoplay muted loop playsinline class="w-full h-full object-cover">
                             <source src="video.mp4" type="video/mp4">
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-pouring-milk-into-a-glass-of-coffee-41221-large.mp4" type="video/mp4">
                         </video>
+                        <div class="absolute inset-0 bg-black/5 pointer-events-none"></div>
                     </div>
                 </div>
             </div>
@@ -437,7 +456,7 @@
                     <h3 class="text-xl font-bold text-red-900 serif-font italic border-b-2 border-red-100 pb-2 mb-6 uppercase tracking-widest">Sandwiches</h3>
                     <ul class="space-y-4">
                         <li class="flex justify-between items-baseline group">
-                            <span class="font-bold text-stone-800 text-sm">Avocado Smash & Havarti Cheese Croissant</span>
+                            <span class="font-bold text-stone-800 text-sm">Avocado Smash & Croissant</span>
                             <div class="flex-grow border-b border-dotted border-stone-300 mx-2"></div>
                             <span class="font-bold text-stone-900">8.27</span>
                         </li>
@@ -462,7 +481,7 @@
                             <span class="font-bold text-stone-900">8.00</span>
                         </li>
                         <li class="flex justify-between items-baseline group">
-                            <span class="font-bold text-stone-800 text-sm">Turkey Breast & Cheese Croissant</span>
+                            <span class="font-bold text-stone-800 text-sm">Turkey & Cheese Croissant</span>
                             <div class="flex-grow border-b border-dotted border-stone-300 mx-2"></div>
                             <span class="font-bold text-stone-900">8.27</span>
                         </li>
@@ -518,10 +537,11 @@
                 <div class="mt-12 pt-12 border-t border-stone-200 text-center">
                     <h4 class="font-bold text-stone-800 uppercase tracking-widest text-[10px] mb-4">Quality & Safety</h4>
                     <p class="mb-6">We maintain the highest standards of food safety and hygiene.</p>
-                    <a href="https://a816-health.nyc.gov/ABCEatsRestaurants/#!/Search/50150160" target="_blank" class="inline-flex items-center space-x-2 text-red-900 font-bold hover:underline">
+                    <a href="https://a816-health.nyc.gov/ABCEatsRestaurants/#!/Search/50150160" target="_blank" class="inline-flex items-center space-x-2 text-red-900 font-bold hover:underline transition-all">
                         <span>View Public Health Record</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                     </a>
+                    <p class="mt-2 text-[10px] text-stone-400">NYC Department of Health Inspection #50150160</p>
                 </div>
             </div>
         </div>
