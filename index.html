@@ -346,24 +346,26 @@
             </div>
         </section>
 
-        <!-- Location Section -->
+        <!-- Location Section (Updated side-by-side for Mobile) -->
         <section id="visit-section" class="py-12 md:py-24 px-4 md:px-6 bg-white">
             <div class="max-w-6xl mx-auto bg-red-900 rounded-[1.5rem] md:rounded-[3.5rem] overflow-hidden shadow-2xl">
-                <div class="flex flex-col lg:flex-row">
-                    <div class="w-full lg:w-1/2 h-[300px] md:h-[400px] lg:h-auto overflow-hidden">
+                <div class="flex flex-row lg:flex-row">
+                    <!-- Map Column -->
+                    <div class="w-1/2 lg:w-1/2 h-[150px] sm:h-[300px] md:h-[400px] lg:h-auto overflow-hidden">
                         <iframe class="w-full h-full grayscale-[0.8] brightness-[0.9]" src="https://maps-api-ssl.google.com/maps?hl=en&ll=40.719309,-73.988417&output=embed&q=122+Ludlow+St,+New+York,+NY+10002+(Kaida+Coffee)&z=17" allowfullscreen loading="lazy"></iframe>
                     </div>
-                    <div class="w-full lg:w-1/2 p-8 md:p-12 lg:p-20 text-white flex flex-col justify-center">
-                        <span class="text-red-200 font-bold tracking-[0.2em] md:tracking-[0.4em] uppercase text-[9px] md:text-[10px] mb-2 md:mb-6 block">Our Location</span>
-                        <h3 class="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-8 serif-font leading-tight">Come say hi!</h3>
-                        <p class="text-red-100/80 text-sm md:text-lg mb-8 md:mb-12 font-light leading-relaxed">
-                            We're located in the heart of Lower East Side. Find us on Ludlow Street.
+                    <!-- Content Column -->
+                    <div class="w-1/2 lg:w-1/2 p-4 sm:p-8 md:p-12 lg:p-20 text-white flex flex-col justify-center">
+                        <span class="text-red-200 font-bold tracking-[0.2em] md:tracking-[0.4em] uppercase text-[7px] md:text-[10px] mb-1 md:mb-6 block">Our Location</span>
+                        <h3 class="text-xs sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-8 serif-font leading-tight">Come say hi!</h3>
+                        <p class="text-red-100/80 text-[8px] sm:text-sm md:text-lg mb-3 md:mb-12 font-light leading-relaxed">
+                            We're on Ludlow Street in the LES.
                         </p>
-                        <div class="flex items-center space-x-4 md:space-x-6">
-                            <a href="https://www.instagram.com/kaidausa/?hl=en" target="_blank" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/10 rounded-lg md:rounded-xl hover:bg-white hover:text-red-900 transition-all">
-                                <svg class="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        <div class="flex items-center space-x-2 md:space-x-6">
+                            <a href="https://www.instagram.com/kaidausa/?hl=en" target="_blank" class="w-6 h-6 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/10 rounded md:rounded-xl hover:bg-white hover:text-red-900 transition-all">
+                                <svg class="w-3 h-3 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                             </a>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=122+Ludlow+St+New+York" target="_blank" class="px-6 md:px-8 py-3 md:py-4 bg-white text-red-900 rounded-lg md:rounded-2xl font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Directions</a>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=122+Ludlow+St+New+York" target="_blank" class="px-2 sm:px-6 md:px-8 py-1.5 sm:py-3 md:py-4 bg-white text-red-900 rounded sm:rounded-2xl font-bold uppercase tracking-widest text-[6px] sm:text-[9px] md:text-[10px]">Directions</a>
                         </div>
                     </div>
                 </div>
