@@ -123,7 +123,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(0, 0, 0, 0.95); /* Darker for better contrast with indicators */
             backdrop-filter: blur(15px);
             z-index: 1000;
             flex-direction: column;
@@ -146,9 +146,9 @@
         }
         #lightboxImg {
             max-width: 90vw;
-            max-height: 80vh;
+            max-height: 70vh; /* Reduced to make room for indicators */
             border-radius: 0.5rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             object-fit: contain;
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
@@ -157,15 +157,42 @@
             top: 50%;
             transform: translateY(-50%);
             padding: 20px;
-            color: #991b1b;
+            color: white;
             cursor: pointer;
             z-index: 1010;
-            background: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.1);
             border-radius: 50%;
+            transition: background 0.3s;
         }
+        .nav-btn:hover { background: rgba(255,255,255,0.2); }
         .nav-prev { left: 20px; }
         .nav-next { right: 20px; }
         
+        /* Croissant Indicators */
+        .indicator-container {
+            display: flex;
+            gap: 8px;
+            padding: 20px;
+            max-width: 90vw;
+            overflow-x: auto;
+            scrollbar-width: none; /* Firefox */
+        }
+        .indicator-container::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+        .croissant-dot {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.4;
+            flex-shrink: 0;
+        }
+        .croissant-dot.active {
+            opacity: 1;
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6));
+        }
+
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f5f5f4; }
         ::-webkit-scrollbar-thumb { background: #991b1b; border-radius: 10px; }
@@ -173,9 +200,9 @@
 </head>
 <body class="bg-stone-50 text-stone-800">
 
-    <!-- Lightbox with Navigation and Swipe Support -->
+    <!-- Lightbox -->
     <div id="lightbox">
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 z-[1020] text-red-900 p-2">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 z-[1020] text-white p-2 hover:scale-110 transition-transform">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
         
@@ -191,7 +218,12 @@
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </div>
 
-        <div class="absolute bottom-8 text-stone-400 text-[10px] tracking-widest uppercase md:hidden">
+        <!-- Indicators Row -->
+        <div id="indicators" class="indicator-container mb-4">
+            <!-- Croissant SVGs injected via JS -->
+        </div>
+
+        <div class="absolute bottom-4 text-stone-500 text-[10px] tracking-widest uppercase md:hidden opacity-50">
             Swipe left or right
         </div>
     </div>
@@ -317,15 +349,13 @@
             </div>
         </section>
 
-        <!-- VISIT SECTION - Side by Side on Mobile -->
+        <!-- VISIT SECTION -->
         <section id="visit-section" class="py-12 md:py-24 px-4 md:px-6 bg-white">
             <div class="max-w-6xl mx-auto bg-red-900 rounded-[1.5rem] md:rounded-[3.5rem] overflow-hidden shadow-2xl">
                 <div class="flex flex-row lg:grid lg:grid-cols-2">
-                    <!-- Map Side -->
                     <div class="w-1/2 lg:w-full h-[200px] md:h-[400px] lg:h-auto overflow-hidden">
                         <iframe class="w-full h-full grayscale-[0.8] brightness-[0.9]" src="https://maps-api-ssl.google.com/maps?hl=en&ll=40.719309,-73.988417&output=embed&q=122+Ludlow+St,+New+York,+NY+10002+(Kaida+Coffee)&z=17" allowfullscreen loading="lazy"></iframe>
                     </div>
-                    <!-- Text/Info Side -->
                     <div class="w-1/2 lg:w-full p-4 md:p-12 lg:p-20 text-white flex flex-col justify-center">
                         <span class="text-red-200 font-bold tracking-[0.2em] md:tracking-[0.4em] uppercase text-[7px] md:text-[10px] mb-2 md:mb-6 block">Our Location</span>
                         <h3 class="text-sm md:text-4xl lg:text-5xl font-bold mb-2 md:mb-8 serif-font leading-tight">Come say hi!</h3>
@@ -351,7 +381,7 @@
                 <span class="text-red-800 font-bold tracking-[0.4em] uppercase text-[9px] mb-2 block">Our Curation</span>
                 <h2 class="text-3xl font-bold text-stone-900 serif-font">Menu</h2>
             </div>
-            <div class="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 gap-3" id="menu-grid">
+            <div class="grid grid-cols-3 gap-3">
                 <div class="zoom-card menu-card" onclick="openLightbox(this, 0)"><img src="Special Drinks.webp" alt="Special Drinks"></div>
                 <div class="zoom-card menu-card" onclick="openLightbox(this, 1)"><img src="drinks.webp" alt="Standard Drinks"></div>
                 <div class="zoom-card menu-card" onclick="openLightbox(this, 2)"><img src="matcha Specials.webp" alt="Matcha Specials"></div>
@@ -439,14 +469,40 @@
         let touchStartX = 0;
         let touchEndX = 0;
 
+        // Custom Croissant SVG String
+        const croissantSvg = `
+            <svg class="croissant-dot" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2,12 C2,12 3,5 12,5 C21,5 22,12 22,12 C22,12 21,19 12,19 C3,19 2,12 2,12 Z" fill="#FBBF24" stroke="#D97706" stroke-width="1"/>
+                <path d="M7,7 Q12,12 17,7" fill="none" stroke="#D97706" stroke-width="1" opacity="0.5"/>
+                <path d="M7,17 Q12,12 17,17" fill="none" stroke="#D97706" stroke-width="1" opacity="0.5"/>
+            </svg>
+        `;
+
         function openLightbox(element, index) {
             const parent = element.parentElement;
             currentGalleryItems = Array.from(parent.querySelectorAll('img')).map(img => img.src);
             currentImgIndex = index;
             
+            generateIndicators();
             updateLightbox();
             document.getElementById('lightbox').classList.add('active');
             document.body.style.overflow = 'hidden';
+        }
+
+        function generateIndicators() {
+            const container = document.getElementById('indicators');
+            container.innerHTML = '';
+            currentGalleryItems.forEach((_, idx) => {
+                const dot = document.createElement('div');
+                dot.innerHTML = croissantSvg;
+                dot.firstChild.classList.add('croissant-dot');
+                dot.onclick = (e) => {
+                    e.stopPropagation();
+                    const diff = idx - currentImgIndex;
+                    if(diff !== 0) changeImage(diff);
+                };
+                container.appendChild(dot.firstChild);
+            });
         }
 
         function closeLightbox() {
@@ -472,6 +528,17 @@
         function updateLightbox() {
             const imgEl = document.getElementById('lightboxImg');
             imgEl.src = currentGalleryItems[currentImgIndex];
+            
+            // Update active state of croissant dots
+            const dots = document.querySelectorAll('.croissant-dot');
+            dots.forEach((dot, idx) => {
+                if (idx === currentImgIndex) {
+                    dot.classList.add('active');
+                    dot.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
         }
 
         const swipeArea = document.getElementById('swipeArea');
